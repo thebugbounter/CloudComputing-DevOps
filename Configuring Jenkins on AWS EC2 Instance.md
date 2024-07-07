@@ -1,4 +1,4 @@
-### Configuring Jenkins on AWS EC2 Instance
+# Configuring Jenkins on AWS EC2 Instance
 ---
 ## Introduction to Jenkins
 ### What is Jenkins?
