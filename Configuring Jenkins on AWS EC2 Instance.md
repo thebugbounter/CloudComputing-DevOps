@@ -1,6 +1,5 @@
-
+###Configuring Jenkins on AWS EC2 Instance
 ---
-
 ## Introduction to Jenkins
 ### What is Jenkins?
 Jenkins is an open-source automation server that facilitates continuous integration (CI) and continuous delivery (CD). It helps automate the parts of software development related to building, testing, and deploying, allowing for the integration of changes to projects continuously.
