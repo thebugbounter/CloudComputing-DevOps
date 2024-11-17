@@ -1,0 +1,125 @@
+# Documentation for Setting Up and Running the Agriculture Prediction Project on AWS EC2
+
+## 1. Introduction
+
+This guide provides step-by-step instructions to set up and deploy the Agriculture Prediction project on an AWS EC2 instance. The project includes setting up a Python environment, running a Flask application, and configuring the necessary security settings.
+
+## 2. Prerequisites
+
+- AWS EC2 instance (Ubuntu/Debian based)
+- SSH access to the EC2 instance
+- Git installed on the EC2 instance
+- AWS security group permissions for HTTP, HTTPS, and custom ports
+- WinSCP (optional for file transfer)
+
+## 3. Steps to Deploy the Project
+
+### 3.1. Connect to Your EC2 Instance
+
+Ensure you have SSH access and connect to your EC2 instance:
+
+```bash
+ssh -i your-key.pem ec2-user@your-ec2-public-ip
+```
+
+### 3.2. Switch to Superuser
+
+Run the following command to switch to the superuser:
+
+```bash
+sudo su
+```
+
+### 3.3. Update System Packages
+
+Update the package list to ensure you have the latest software:
+
+```bash
+sudo apt update
+```
+
+### 3.4. Download or Transfer Project Files
+
+Clone the GitHub repository directly to your instance:
+
+```bash
+git clone https://github.com/thebugbounter/agriculture-predection-aws.git
+```
+
+Alternatively, use **WinSCP** to transfer project files from your local machine to the EC2 instance.
+
+### 3.5. Navigate to the Project Directory
+
+Change to the project directory:
+
+```bash
+cd agriculture-predection-aws
+```
+
+### 3.6. Install Python and Pip
+
+Ensure Python 3 and `pip` are installed:
+
+```bash
+sudo apt install python3
+sudo apt install python3-pip
+```
+
+### 3.7. Install Python Virtual Environment
+
+Install the Python virtual environment package:
+
+```bash
+sudo apt install python3.12-venv
+```
+
+### 3.8. Create and Activate a Virtual Environment
+
+Create a virtual environment and activate it:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3.9. Install Required Python Packages
+
+Install the necessary Python libraries:
+
+```bash
+pip install flask
+pip install scikit-learn
+```
+
+### 3.10. Run the Flask Application
+
+Start the Flask application with:
+
+```bash
+python3 app.py
+```
+
+## 4. Configure AWS Security Groups
+
+To allow traffic to the application, update the security group settings:
+
+1. Go to the **AWS Management Console**.
+2. Navigate to **EC2** > **Security Groups**.
+3. Select the security group associated with your EC2 instance.
+4. Edit the inbound rules and add the following:
+   - **HTTP** (Port 80): Source: `Anywhere (0.0.0.0/0)`
+   - **HTTPS** (Port 443): Source: `Anywhere (0.0.0.0/0)`
+   - **Custom TCP Rule** (Port 8080): Source: `Anywhere (0.0.0.0/0)`
+
+## 5. Access the Application
+
+Access the Flask application in your web browser at:
+
+```
+http://your-ec2-public-ip:8080
+```
+
+## 6. Conclusion
+
+This documentation provides all the necessary steps to set up and run the Agriculture Prediction project on an AWS EC2 instance. Ensure that the security groups are correctly configured for access and that all dependencies are installed for a successful deployment.
+
