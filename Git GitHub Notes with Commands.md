@@ -1,4 +1,4 @@
-# Git GitHub Notes with Commands
+# Git/GitHub Notes with Commands
 ___
 ## 1️⃣ **Git Basics**
 ### 🔹 Install Git
